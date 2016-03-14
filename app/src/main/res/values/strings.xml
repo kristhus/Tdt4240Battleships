@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Battleships</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="main_menu">Main menu</string>
+    <string name="options_menu">Options</string>
+    <string name="game_mode">Game modes</string>
+    <string name="lobby">Lobby</string>
+
+
+</resources>
