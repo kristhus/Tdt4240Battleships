@@ -1,4 +1,4 @@
-package com.g4.progark.battleships.framework;
+package com.g4.progark.battleships.controllers;
 
 import android.app.Activity;
 import android.content.Intent;

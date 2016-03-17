@@ -1,8 +1,8 @@
-package com.g4.progark.battleships.menus;
+package com.g4.progark.battleships.controllers.menus;
 
 import android.view.View;
 
-import com.g4.progark.battleships.framework.AndroidMenu;
+import com.g4.progark.battleships.controllers.AndroidMenu;
 
 /**
  * Created by Kristian on 11/03/2016.

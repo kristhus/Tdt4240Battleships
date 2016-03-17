@@ -1,9 +1,11 @@
-package com.g4.progark.battleships;
+package com.g4.progark.battleships.controllers.menus;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import com.g4.progark.battleships.R;
 
 public class MainActivity extends AppCompatActivity {
 

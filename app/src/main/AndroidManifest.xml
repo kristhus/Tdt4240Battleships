@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".controllers.menus.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,22 +18,22 @@
         </activity>
 
         <activity
-            android:name=".menus.MainMenu"
+            android:name=".controllers.menus.MainMenu"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> <!-- Changing this, you can set the default theme. Themes can be created. -->
             android:screenOrientation="portrait"> <!-- Set to "landscape" to change default orientation -->
         </activity>
         <activity
-            android:name=".menus.GameMode"
+            android:name=".controllers.menus.GameMode"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait"> <!-- Set to "landscape" to change orientation -->
         </activity>
         <activity
-            android:name=".menus.Lobby"
+            android:name=".controllers.menus.Lobby"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait"> <!-- Set to "landscape" to change orientation -->
         </activity>
         <activity
-            android:name=".menus.OptionsMenu"
+            android:name=".controllers.menus.OptionsMenu"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:screenOrientation="portrait"> <!-- Set to "landscape" to change orientation -->
         </activity>
