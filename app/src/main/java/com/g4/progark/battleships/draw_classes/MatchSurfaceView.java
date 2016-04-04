@@ -1,5 +1,7 @@
 package com.g4.progark.battleships.draw_classes;
 
+import android.graphics.Canvas;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
@@ -10,13 +12,24 @@ import com.g4.progark.battleships.controllers.AndroidMenu;
  */
 public abstract class MatchSurfaceView extends SurfaceView implements SurfaceHolder.Callback{
 
-    private AndroidMenu mainActivity;
-    private SurfaceHolder holder;
+    protected AndroidMenu mainActivity;
+    protected SurfaceHolder holder;
 
     public MatchSurfaceView(AndroidMenu context) {
         super(context);
         this.mainActivity = context;
         this.holder = getHolder();
+    }
+
+
+    @Override
+    public void draw(Canvas canvas) {
+        super.draw(canvas);
+    }
+
+
+    public void update(){
+
     }
 
 }
