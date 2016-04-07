@@ -19,8 +19,8 @@ public class GameMap {
 
     public GameMap(Context context, String map_name){
 
-        //Bitmap temp = BitmapFactory.decodeResource(context.getResources(), context.getResources().getIdentifier(map_name, "drawable", context.getPackageName()));
-        Bitmap temp = BitmapFactory.decodeResource(context.getResources(), R.drawable.sea);
+        Bitmap temp = BitmapFactory.decodeResource(context.getResources(), context.getResources().getIdentifier(map_name, "drawable", context.getPackageName()));
+        //Bitmap temp = BitmapFactory.decodeResource(context.getResources(), R.drawable.sea);
 
 
         area = Bitmap.createScaledBitmap(temp, (int)Constants.SCREEN_WIDTH, (int)Constants.SCREEN_HEIGHT,true);

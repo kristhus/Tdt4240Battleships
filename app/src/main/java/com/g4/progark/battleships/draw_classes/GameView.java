@@ -33,7 +33,7 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback{
         this.holder.addCallback(this);
 
         this.map = new GameMap(context, map_name);
-        this.gridView = new GridView(10,10);
+        this.gridView = new GridView(10,20);
     }
 
 

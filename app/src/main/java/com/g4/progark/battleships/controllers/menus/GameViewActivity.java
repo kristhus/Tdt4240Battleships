@@ -10,11 +10,13 @@ import com.g4.progark.battleships.draw_classes.GameView;
 
 public class GameViewActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            setContentView(new GameView(this,"map"));
+            setContentView(new GameView(this,"grass"));
         } catch (Exception e) {
             e.printStackTrace();
         }

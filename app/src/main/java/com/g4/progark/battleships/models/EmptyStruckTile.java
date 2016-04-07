@@ -31,7 +31,7 @@ public class EmptyStruckTile implements Drawable{
         canvas.drawCircle((x+width)/2,(y+height)/2,radius,paint);
 
         canvas.drawRect(rect, paint);
-        */
+
 
         float smallerDimension = width <= height ? width : height;
 
@@ -39,5 +39,16 @@ public class EmptyStruckTile implements Drawable{
         p.setColor(Color.RED);
 
         canvas.drawCircle(x + width/2,y+height/2,smallerDimension/2,p);
+
+        */
+
+
+        Paint p = new Paint();
+        p.setColor(Color.YELLOW);
+
+        canvas.drawLine(x,y+height,x+width,y,p);
+        canvas.drawLine(x,y,x+width,y+height,p);
+
+
     }
 }
