@@ -16,30 +16,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".controllers.menus.MainMenu"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"> <!-- Changing this, you can set the default theme. Themes can be created. -->
-            android:screenOrientation="portrait"> <!-- Set to "landscape" to change default orientation -->
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- Changing this, you can set the default theme. Themes can be created. -->
+            android:screenOrientation="portrait"> 
+            <!-- Set to "landscape" to change default orientation -->
         </activity>
         <activity
             android:name=".controllers.menus.GameMode"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait"> <!-- Set to "landscape" to change orientation -->
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- Set to "landscape" to change orientation -->
         </activity>
         <activity
             android:name=".controllers.menus.Lobby"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait"> <!-- Set to "landscape" to change orientation -->
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- Set to "landscape" to change orientation -->
         </activity>
         <activity
             android:name=".controllers.menus.OptionsMenu"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:screenOrientation="portrait"> <!-- Set to "landscape" to change orientation -->
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" > <!-- Set to "landscape" to change orientation -->
         </activity>
-
-
-
+        <activity
+            android:name=".controllers.menus.GameViewActivity"
+            android:label="@string/title_activity_game_view" >
+        </activity>
     </application>
 
 </manifest>

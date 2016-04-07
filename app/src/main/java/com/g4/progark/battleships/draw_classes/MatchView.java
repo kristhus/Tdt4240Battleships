@@ -10,12 +10,12 @@ import com.g4.progark.battleships.controllers.AndroidMenu;
 /**
  * Created by Kristian on 11/03/2016.
  */
-public abstract class MatchSurfaceView extends SurfaceView implements SurfaceHolder.Callback{
+public abstract class MatchView extends SurfaceView implements SurfaceHolder.Callback{
 
     protected AndroidMenu mainActivity;
     protected SurfaceHolder holder;
 
-    public MatchSurfaceView(AndroidMenu context) {
+    public MatchView(AndroidMenu context) {
         super(context);
         this.mainActivity = context;
         this.holder = getHolder();
