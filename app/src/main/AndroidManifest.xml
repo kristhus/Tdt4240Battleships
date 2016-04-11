@@ -41,6 +41,10 @@
             android:name=".controllers.menus.GameViewActivity"
             android:label="@string/title_activity_game_view" >
         </activity>
+        <activity
+            android:name=".controllers.menus.IntermediateActivity"
+            android:label="@string/title_activity_intermediate" >
+        </activity>
     </application>
 
 </manifest>

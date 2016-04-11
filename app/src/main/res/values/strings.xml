@@ -9,6 +9,8 @@
     <string name="game_mode">Game modes</string>
     <string name="lobby">Lobby</string>
     <string name="title_activity_game_view">GameViewActivity</string>
+    <string name="title_activity_intermediate">IntermediateActivity</string>
+    <string name="game_instruct">Swipe to start turnt</string>
 
 
 </resources>

@@ -1,9 +1,11 @@
 package com.g4.progark.battleships.utility;
 
+import java.io.Serializable;
+
 /**
  * Created by ahmed on 04.04.2016.
  */
-public class Coordinate {
+public class Coordinate{
 
     private float x;
     private float y;

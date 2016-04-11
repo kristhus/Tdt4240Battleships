@@ -7,7 +7,7 @@ import android.graphics.Canvas;
  */
 public interface Drawable {
 
-    public void draw(Canvas canvas, float x, float y, float width, float height);
+    public  void draw(Canvas canvas, float x, float y, float width, float height);
 
 
 }
