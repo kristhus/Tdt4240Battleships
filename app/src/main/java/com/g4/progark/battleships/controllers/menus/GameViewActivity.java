@@ -100,10 +100,13 @@ public class GameViewActivity extends AppCompatActivity {
                     //player2_ship_grid = new GridView(new Coordinate(x1,y1),
                             //Constants.SHIP_GRID_BORDER, Constants.SHIP_GRID_WIDTH, Constants.SHIP_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
 
-                    player2_ship_grid.setTiles(Constants.SHIP_TILES2);
+
                     player2_strike_grid.setTiles(Constants.STRIKE_TILES2);
-                    player1_ship_grid.setTiles(Constants.SHIP_TILES1);
+
                 }
+
+                player2_ship_grid.setTiles(Constants.SHIP_TILES2);
+                player1_ship_grid.setTiles(Constants.SHIP_TILES1);
 
                 gameView = new GameView(this, "sea", player2_ship_grid, player2_strike_grid, player1_ship_grid);
             }
