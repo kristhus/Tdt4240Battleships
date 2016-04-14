@@ -34,20 +34,33 @@ public class GridView{
     private final float tile_rect_height;
 
 
+    //top left position of the grid
+    private Coordinate top_left;
 
     private HashMap<Coordinate, GameTile> tiles;
     //private HashMap<Coordinate, String> tiles;
 
     //private ArrayList<GameTile> tiles;
 
-    public GridView(int num_cols, int num_rows) throws Exception {
+    public GridView(Coordinate top_left, float border_width,  float grid_width, float grid_height, int num_cols, int num_rows) throws Exception {
+
+        this.top_left = top_left;
+
+
+
+        if(top_left.getX() - border_width < 0 || top_left.getX() + grid_width > Constants.SCREEN_WIDTH || top_left.getY() - border_width < 0 || top_left.getY() + grid_height > Constants.SCREEN_HEIGHT){
+            throw new Exception("Dimensions of grid are exceeding screen width");
+        }
+
+
         this.num_cols = num_cols;
         this.num_rows = num_rows;
 
 
 
-        tile_width = Constants.SCREEN_WIDTH/(float)num_cols;
-        tile_height = Constants.SCREEN_HEIGHT/(float)num_rows;
+
+        tile_width = grid_width/(float)num_cols;
+        tile_height = grid_height/(float)num_rows;
 
 
         tile_rect_width = tile_width-2*Constants.TILE_BORDER_WIDTH;
@@ -69,8 +82,11 @@ public class GridView{
 
     public void init(){
 
-        float ycoordinate = Constants.TILE_BORDER_WIDTH;
-        float xcoordinate = Constants.TILE_BORDER_WIDTH;
+        //float ycoordinate = Constants.TILE_BORDER_WIDTH;
+        //float xcoordinate = Constants.TILE_BORDER_WIDTH;
+
+        float xcoordinate = top_left.getX();
+        float ycoordinate = top_left.getY();
 
         for (int i = 0; i < num_cols; i++) {
             //xcoordinate = xcoordinate+i*tile_width;
@@ -82,7 +98,8 @@ public class GridView{
                 //ycoordinate = ycoordinate+j*tile_height;
 
                 //tiles.add(new GameTile(TileState.EMPTY_TILE,(float)i,(float)j ));
-                tiles.put(new Coordinate((float)i,(float)j), new GameTile(TileState.EMPTY_TILE, xcoordinate+i*tile_width, ycoordinate+j*tile_height));
+                //tiles.put(new Coordinate((float)i,(float)j), new GameTile(TileState.EMPTY_TILE, xcoordinate+i*tile_width, ycoordinate+j*tile_height));
+                tiles.put(new Coordinate((float)i,(float)j), new GameTile(new EmptyTile(), xcoordinate+i*tile_width, ycoordinate+j*tile_height));
             }
         }
 
@@ -90,13 +107,14 @@ public class GridView{
 
 
     //Second overloaded constructor
+    /*
     public GridView(HashMap<Coordinate,GameTile> intiles, int num_cols, int num_rows) throws Exception {
         this.num_cols = num_cols;
         this.num_rows = num_rows;
 
 
-        tile_width = Constants.SCREEN_WIDTH / (float) num_cols;
-        tile_height = Constants.SCREEN_HEIGHT / (float) num_rows;
+        tile_width = Constants.SHIP_GRID_WIDTH / (float) num_cols;
+        tile_height = Constants.SHIP_GRID_HEIGHT / (float) num_rows;
 
 
         tile_rect_width = tile_width - 2 * Constants.TILE_BORDER_WIDTH;
@@ -108,7 +126,7 @@ public class GridView{
 
         this.tiles = intiles;
     }
-
+    */
 
     public void draw(Canvas canvas) {
 
@@ -133,8 +151,11 @@ public class GridView{
 
     public GameTile getTile(float x, float y){
 
-        int column = (int)(x/tile_width);
-        int row = (int)(y/tile_height);
+        //int column = (int)(x/tile_width);
+        //int row = (int)(y/tile_height);
+
+        int column = (int)((x-top_left.getX())/tile_width);
+        int row = (int)((y-top_left.getY())/tile_height);
 
         Coordinate c = new Coordinate(column,row);
 
@@ -149,6 +170,20 @@ public class GridView{
 
     }
 
+    public static Coordinate getCoordinateKeyForStrike(Coordinate top_left_grid, float x, float y){
+
+        int column = (int)((x-top_left_grid.getX())/(Constants.STRIKE_GRID_WIDTH/Constants.NUMBER_COLUMN_TILES));
+        int row = (int)((y-top_left_grid.getY())/(Constants.STRIKE_GRID_HEIGHT/Constants.NUMBER_ROW_TILES));
+
+        Coordinate c = new Coordinate(column,row);
+
+        return c;
+
+    }
+
+    public Coordinate getTop_left() {
+        return top_left;
+    }
 
     public HashMap<Coordinate, GameTile> getTiles() {
         return tiles;

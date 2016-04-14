@@ -32,7 +32,7 @@ public class Ship {
         //will be improved later if time allows. Here a ship image is being loaded and scaled down which is inefficient memory consumption wise
         //better to scale the bitmap as it is loaded using BitmapFactory options or other methods ....
         Bitmap temp = BitmapFactory.decodeResource(context.getResources(), context.getResources().getIdentifier(ship_img_name, "drawable", context.getPackageName()));
-        //shipImage = Bitmap.createScaledBitmap(temp, (int) Constants.SCREEN_WIDTH, (int)Constants.SCREEN_HEIGHT,true);
+        //shipImage = Bitmap.createScaledBitmap(temp, (int) Constants.SHIP_GRID_WIDTH, (int)Constants.SHIP_GRID_HEIGHT,true);
 
     }
 }

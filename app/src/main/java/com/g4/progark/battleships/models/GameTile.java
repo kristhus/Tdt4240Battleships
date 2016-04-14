@@ -17,22 +17,23 @@ public class GameTile{
 
 
 
-    //private Drawable gameTileState;
+    private Drawable gameTileState;
 
     //private Coordinate top_left;
 
     //
 
 
-    private TileState tileState;
+    //private TileState tileState;
 
     //Coordinates of the top left corner of the game tile, avoided use of a Coordinate instance as primitive field states are easier to parse across activity transitions
     private float r;
     private float c;
 
 
-    public GameTile(TileState tileState, float c, float r) {
-        this.tileState = tileState;
+    public GameTile(Drawable gameTileState, float c, float r) {
+        //this.tileState = tileState;
+        this.gameTileState = gameTileState;
         this.r = r;
         this.c = c;
     }
@@ -50,15 +51,25 @@ public class GameTile{
 
     public void drawTile(Canvas canvas, float x, float y , float width, float height){
 
-        drawBorders(canvas, x,y,width,height);
+        drawBorders(canvas, x, y, width, height);
 
-        TileDrawer.drawTile(tileState, canvas, c, r, width, height);
+        //TileDrawer.drawTile(tileState, canvas, c, r, width, height);
 
-
+        gameTileState.draw(canvas, x, y, width, height);
 
 
     }
 
+    public Drawable getGameTileState() {
+        return gameTileState;
+    }
+
+    public void setGameTileState(Drawable gameTileState) {
+        this.gameTileState = gameTileState;
+    }
+
+
+    /*
     public void setTileState(TileState tileState) {
         this.tileState = tileState;
     }
@@ -67,6 +78,7 @@ public class GameTile{
     public TileState getTileState() {
         return tileState;
     }
+    */
 
     public float getR() {
         return r;

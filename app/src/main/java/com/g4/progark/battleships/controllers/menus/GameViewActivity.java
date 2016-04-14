@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.g4.progark.battleships.R;
+import com.g4.progark.battleships.controllers.GameController;
 import com.g4.progark.battleships.draw_classes.GameView;
 import com.g4.progark.battleships.draw_classes.GridView;
 import com.g4.progark.battleships.models.GameMap;
@@ -33,10 +34,13 @@ import java.util.Map;
 public class GameViewActivity extends AppCompatActivity {
 
 
-    private int player;
 
-    private GridView grid1;
-    private GridView grid2;
+
+    private GridView player1_ship_grid;
+    private GridView player1_strike_grid;
+
+    private GridView player2_ship_grid;
+    private GridView player2_strike_grid;
 
     private GameView gameView;
 
@@ -51,36 +55,57 @@ public class GameViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
 
-        /*
-        this.player1 = new Player();
-        this.player2 = new Player();
+        float x1 = Constants.SCREEN_WIDTH/(float)2 - (Constants.SHIP_GRID_WIDTH+Constants.SHIP_GRID_BORDER)/(float)2;
+        float y1 = Constants.SHIP_GRID_BORDER;
 
-        this.player1.setName("Cola");
-        this.player2.setName("Pepsi");
-
-        */
-
-
+        float x2 = Constants.SCREEN_WIDTH/(float)2 - (Constants.STRIKE_GRID_WIDTH+Constants.STRIKE_GRID_BORDER)/(float)2;
+        float y2 = Constants.SCREEN_HEIGHT - Constants.STRIKE_GRID_BORDER  - Constants.STRIKE_GRID_HEIGHT;
 
 
         try {
 
             if(Constants.CURRENT_PLAYER == 1){
-                if(Constants.GRID1_TILES == null){
-                    grid1 = new GridView(Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
-                } else {
-                    grid1 = new GridView(Constants.GRID1_TILES, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                player1_ship_grid = new GridView(new Coordinate(x1,y1),
+                        Constants.SHIP_GRID_BORDER, Constants.SHIP_GRID_WIDTH, Constants.SHIP_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                player1_strike_grid = new GridView(new Coordinate(x2,y2), Constants.STRIKE_GRID_BORDER, Constants.STRIKE_GRID_WIDTH, Constants.STRIKE_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                player2_ship_grid = new GridView(new Coordinate(x1,y1),
+                        Constants.SHIP_GRID_BORDER, Constants.SHIP_GRID_WIDTH, Constants.SHIP_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                if(Constants.SHIP_TILES1 != null && Constants.STRIKE_TILES1 != null && Constants.SHIP_TILES2 != null){
+
+                    player1_ship_grid.setTiles(Constants.SHIP_TILES1);
+                    player1_strike_grid.setTiles(Constants.STRIKE_TILES1);
+                    player2_ship_grid.setTiles(Constants.SHIP_TILES2);
+
                 }
 
-                gameView = new GameView(this, "sea", grid1);
+                gameView = new GameView(this, "sea", player1_ship_grid, player1_strike_grid, player2_ship_grid);
             } else {
-                if(Constants.GRID2_TILES == null){
-                    grid2 = new GridView(Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
-                } else {
-                    grid2 = new GridView(Constants.GRID2_TILES, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                player2_ship_grid = new GridView(new Coordinate(x1,y1),
+                        Constants.SHIP_GRID_BORDER, Constants.SHIP_GRID_WIDTH, Constants.SHIP_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                player2_strike_grid = new GridView(new Coordinate(x2,y2),
+                        Constants.STRIKE_GRID_BORDER, Constants.STRIKE_GRID_WIDTH, Constants.STRIKE_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+
+                player1_ship_grid = new GridView(new Coordinate(x1,y1),
+                        Constants.SHIP_GRID_BORDER, Constants.SHIP_GRID_WIDTH, Constants.SHIP_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+
+                if(Constants.STRIKE_TILES2 != null){
+                    //player2_ship_grid = new GridView(new Coordinate(x1,y1),
+                            //Constants.SHIP_GRID_BORDER, Constants.SHIP_GRID_WIDTH, Constants.SHIP_GRID_HEIGHT, Constants.NUMBER_COLUMN_TILES, Constants.NUMBER_ROW_TILES);
+
+                    player2_ship_grid.setTiles(Constants.SHIP_TILES2);
+                    player2_strike_grid.setTiles(Constants.STRIKE_TILES2);
+                    player1_ship_grid.setTiles(Constants.SHIP_TILES1);
                 }
 
-                gameView = new GameView(this, "sea", grid2);
+                gameView = new GameView(this, "sea", player2_ship_grid, player2_strike_grid, player1_ship_grid);
             }
 
         } catch(Exception e){
@@ -89,40 +114,17 @@ public class GameViewActivity extends AppCompatActivity {
 
 
 
-        //loadState();
-
-
-
-
-
-        /*
-        gameView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-
-               gameView.drawNewState(motionEvent.getX(), motionEvent.getY());
-
-                //saveState();
-
-                Constants.GRID1_TILES = gameView.getCurrentGridView().getTiles();
-
-                Intent intent = new Intent(getApplicationContext(), IntermediateActivity.class);
-
-                startActivity(intent);
-
-                return true;
-            }
-        });
-        */
 
 
         setContentView(gameView);
-        Toast.makeText(this, "Player " + Constants.CURRENT_PLAYER + " may start", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Player " + Constants.CURRENT_PLAYER + " GO!!", Toast.LENGTH_SHORT).show();
 
         //map name should be passed in as a parameter, it is at the moment hard coded
 
 
     }
+
+
 
     /*
     public void loadState(){
